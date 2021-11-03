@@ -1,1 +1,124 @@
-<div class="test">This is a test</div>
+<!-- Nav will navigate through all the users/modes -->
+<div class="nav">
+  <ul>
+    <li><a href="{{user1URL}}">{{user1}}</a></li>
+    <li><a href="{{user2URL}}">{{user2}}</a></li>
+    <li><a href="{{user3URL}}">{{user3}}</a></li>
+    <li><a href="{{user4URL}}">{{user4}}</a></li>
+    <li><a href="{{user5URL}}">{{user5}}</a></li>
+    <li><a href="{{user6URL}}">{{user6}}</a></li>
+  </ul>
+  </div>
+
+<!-- Charater sheet starts here -->
+
+<!-- Player/Character Info -->
+<div class="charInfo">
+  <div class="logo">
+      <!-- Div will have CSS controlling the size/background to match the system -->
+  </div>
+  <div class="charName">Character name: {{currentName}}</div>
+  <div class="charRace">Race: {{currentRace}}</div>
+  <div class="charAlign">Alignment: {{currentAlign}}</div>
+  <div class="charBG">Background: {{currentBG}}</div>
+</div>
+
+<!-- Attributes -->
+<div class="charAttr">
+  <div class="charAttribute">
+    Strength: <br>
+    {{currentStr}} <br>
+    {{currentStrMod}}
+  </div>
+  <div class="charAttribute">
+    Dexterity: <br>
+    {{currentDex}} <br>
+    {{currentDexMod}}
+  </div>
+  <div class="charAttribute">
+    Constitution: <br>
+    {{currentCon}} <br>
+    {{currentConMod}}
+  </div>
+  <div class="charAttribute">
+    Intelligence: <br>
+    {{currentInt}} <br>
+    {{currentIntMod}}
+  </div>
+  <div class="charAttribute">
+    Wisdom: <br>
+    {{currentWis}} <br>
+    {{currentWisMod}}
+  </div>
+  <div class="charAttribute">
+    Charisma: <br>
+    {{currentCha}} <br>
+    {{currentChaMod}}
+  </div>
+</div>
+
+<!-- Proficiency and Saves and skills - Automated -->
+<div class="charSaves">
+ <div class="charProf"> 
+   Profiency Bonus: <br>
+   {{currentProf}}
+ </div>
+ <div class="charAttrSaves">
+   <ul>
+    <li><input type="radio"> Strength: {{currentStrSave}}</li>
+    <li><input type="radio"> Dexterity: {{currentDexSave}}</li>
+    <li><input type="radio"> Constitution: {{currentConSave}}</li>
+    <li><input type="radio"> Intelligence: {{currentIntSave}}</li>
+    <li><input type="radio"> Wisdom: {{currentWisSave}}</li>
+    <li><input type="radio"> Charisma: {{currentChaSave}}</li>
+   </ul>
+   <p>Saving Throws</p>
+ </div>
+ <div class="charSkills">
+   <ul>
+     <li><input type="radio"> {{currentAcro}} - Acrobatics (Dex)</li>
+     <li><input type="radio"> {{currentAnim}} - Animal Handiling (Wis)</li>
+     <li><input type="radio"> {{currentArca}} - Arcana (Int)</li>
+     <li><input type="radio"> {{currentAthl}} - Athletics (Str)</li>
+     <li><input type="radio"> {{currentDece}} - Deception (Cha)</li>
+     <li><input type="radio"> {{currentHist}} - History (Int)</li>
+     <li><input type="radio"> {{currentInsi}} - Insight (Wis)</li>
+     <li><input type="radio"> {{currentInti}} - Intimidation (Cha)</li>
+     <li><input type="radio"> {{currentInve}} - Investigation (Int)</li>
+     <li><input type="radio"> {{currentMedi}} - Medicine (Wis)</li>
+     <li><input type="radio"> {{currentNatu}} - Nature (Int)</li>
+     <li><input type="radio"> {{currentPerc}} - Perception (Wis)</li>
+     <li><input type="radio"> {{currentPref}} - Preformance (Cha)</li>
+     <li><input type="radio"> {{currentPers}} - Persuasion (Cha)</li>
+     <li><input type="radio"> {{currentReli}} - Religion (Int)</li>
+     <li><input type="radio"> {{currentSlei}} - Sleight of Hand (Dex)</li>
+     <li><input type="radio"> {{currentStea}} - Stealth (Dex)</li>
+     <li><input type="radio"> {{currentSurv}} - Survival (Wis)</li>
+     <p>Skills</p>
+
+   </ul>
+ </div>
+
+
+  
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
