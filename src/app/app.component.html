@@ -1,12 +1,7 @@
 <!-- Nav will navigate through all the users/modes -->
 <div class="nav">
   <ul>
-    <li><a href="{{user1URL}}">{{user1}}</a></li>
-    <li><a href="{{user2URL}}">{{user2}}</a></li>
-    <li><a href="{{user3URL}}">{{user3}}</a></li>
-    <li><a href="{{user4URL}}">{{user4}}</a></li>
-    <li><a href="{{user5URL}}">{{user5}}</a></li>
-    <li><a href="{{user6URL}}">{{user6}}</a></li>
+    <li><a href="user1URL">{{user1}}</a></li>
   </ul>
   </div>
 
@@ -94,12 +89,34 @@
      <li><input type="radio"> {{currentSlei}} - Sleight of Hand (Dex)</li>
      <li><input type="radio"> {{currentStea}} - Stealth (Dex)</li>
      <li><input type="radio"> {{currentSurv}} - Survival (Wis)</li>
-     <p>Skills</p>
-
    </ul>
+   <p>Skills</p>
  </div>
 
+ <!-- AC/Initive/HP etc -->
 
+<div class="charACBlock">
+  <div class="charAC"> 
+    {{currentAC}}
+   <p>Armor Class</p> 
+  </div>
+  <div class="charInitative">
+    {{currentInit}}
+    <p>Intiative</p>
+  </div>
+  <div class="charSpeed">
+    {{currentSpeed}}
+    <p>Speed</p>
+  </div>
+  <div class="charHP">
+    {{currentHP}}
+    <p>Hit Point Maximum</p>
+  </div>
+  
+
+
+
+</div>
   
 
 
