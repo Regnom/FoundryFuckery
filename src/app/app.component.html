@@ -1,142 +1,26 @@
 <!-- Nav will navigate through all the users/modes -->
-<div class="nav">
-  <ul>
-    <li><a href="user1URL">{{user1}}</a></li>
-  </ul>
-  </div>
 
 <!-- Charater sheet starts here -->
 
 <!-- Player/Character Info -->
-<div class="charInfo">
+<div *ngFor="let player of players; index as i; trackBy: trackByFn" class="charInfo">
   <div class="logo">
       <!-- Div will have CSS controlling the size/background to match the system -->
   </div>
-  <div class="charName">Character name: {{currentName}}</div>
-  <div class="charRace">Race: {{currentRace}}</div>
-  <div class="charAlign">Alignment: {{currentAlign}}</div>
-  <div class="charBG">Background: {{currentBG}}</div>
-  <div class="charClass">Class: {{currentClass}}</div>
-</div>
-
-<!-- Attributes -->
-<div class="charAttr">
-  <div class="charAttribute">
-    Strength:
-    <h1>{{currentStr}}</h1>
-    <h2>{{currentStrMod}}</h2>
-  </div>
-  <div class="charAttribute">
-    Dexterity:
-    <h1>{{currentDex}}</h1>
-    <h2>{{currentDexMod}}</h2>
-  </div>
-  <div class="charAttribute">
-    Constitution:
-    <h1>{{currentCon}}</h1>
-    <h2>{{currentConMod}}</h2>
-  </div>
-  <div class="charAttribute">
-    Intelligence:
-    <h1>{{currentInt}}</h1>
-    <h2>{{currentIntMod}}</h2>
-  </div>
-  <div class="charAttribute">
-    Wisdom:
-    <h1>{{currentWis}}</h1>
-    <h2>{{currentWisMod}}</h2>
-  </div>
-  <div class="charAttribute">
-    Charisma:
-    <h1>{{currentCha}}</h1>
-    <h2>{{currentChaMod}}</h2>
-  </div>
-</div>
-
-<!-- Proficiency and Saves and skills - Automated -->
-<div class="charSaves">
- <div class="charProf"> 
-   Profiency Bonus: <br>
-   {{currentProf}}
- </div>
- <div class="charAttrSaves">
-   <ul>
-    <li><input type="radio"> Strength: {{currentStrSave}}</li>
-    <li><input type="radio"> Dexterity: {{currentDexSave}}</li>
-    <li><input type="radio"> Constitution: {{currentConSave}}</li>
-    <li><input type="radio"> Intelligence: {{currentIntSave}}</li>
-    <li><input type="radio"> Wisdom: {{currentWisSave}}</li>
-    <li><input type="radio"> Charisma: {{currentChaSave}}</li>
-   </ul>
-   <p>Saving Throws</p>
- </div>
- <div class="charSkills">
-   <ul>
-     <li><input type="radio"> {{currentAcro}} - Acrobatics (Dex)</li>
-     <li><input type="radio"> {{currentAnim}} - Animal Handiling (Wis)</li>
-     <li><input type="radio"> {{currentArca}} - Arcana (Int)</li>
-     <li><input type="radio"> {{currentAthl}} - Athletics (Str)</li>
-     <li><input type="radio"> {{currentDece}} - Deception (Cha)</li>
-     <li><input type="radio"> {{currentHist}} - History (Int)</li>
-     <li><input type="radio"> {{currentInsi}} - Insight (Wis)</li>
-     <li><input type="radio"> {{currentInti}} - Intimidation (Cha)</li>
-     <li><input type="radio"> {{currentInve}} - Investigation (Int)</li>
-     <li><input type="radio"> {{currentMedi}} - Medicine (Wis)</li>
-     <li><input type="radio"> {{currentNatu}} - Nature (Int)</li>
-     <li><input type="radio"> {{currentPerc}} - Perception (Wis)</li>
-     <li><input type="radio"> {{currentPref}} - Preformance (Cha)</li>
-     <li><input type="radio"> {{currentPers}} - Persuasion (Cha)</li>
-     <li><input type="radio"> {{currentReli}} - Religion (Int)</li>
-     <li><input type="radio"> {{currentSlei}} - Sleight of Hand (Dex)</li>
-     <li><input type="radio"> {{currentStea}} - Stealth (Dex)</li>
-     <li><input type="radio"> {{currentSurv}} - Survival (Wis)</li>
-   </ul>
-   <p>Skills</p>
- </div>
-
- <!-- AC/Initive/HP etc -->
-
-<div class="charACBlock">
-  <div class="charAC"> 
-    {{currentAC}}
-   <p>Armor Class</p> 
-  </div>
-  <div class="charInitative">
-    {{currentInit}}
-    <p>Intiative</p>
-  </div>
-  <div class="charSpeed">
-    {{currentSpeed}}
-    <p>Speed</p>
-  </div>
-  <div class="charHP">
-    {{currentHP}}
-    <p>Hit Point Maximum</p>
-  </div>
-  
-
-
+  <div class="charName">Character name: {{player.name}}</div>
+  <div class="charRace">Race: {{player.race}}</div>
+  <div class="charAlign">Alignment: {{player.allignment}}</div>
+  <div class="charClass">Class: {{player.dndClass}}</div>
+  <ul>
+    <li>Strength: {{player.attributes.str}} ({{displayAttributeBonus(player.attributes.str)}})</li>
+    <li>Dexterity: {{player.attributes.dex}} ({{displayAttributeBonus(player.attributes.dex)}})</li>
+    <li>Constitution: {{player.attributes.con}} ({{displayAttributeBonus(player.attributes.con)}})</li>
+    <li>Intelligence: {{player.attributes.int}} ({{displayAttributeBonus(player.attributes.int)}})</li>
+    <li>Wisdom: {{player.attributes.wis}} ({{displayAttributeBonus(player.attributes.wis)}})</li>
+    <li>Charisma: {{player.attributes.cha}} ({{displayAttributeBonus(player.attributes.cha)}})</li>
+  </ul>
 
 </div>
   
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
