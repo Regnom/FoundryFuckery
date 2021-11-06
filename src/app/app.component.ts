@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ɵsetCurrentInjector } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -19,79 +19,41 @@ export class AppComponent {
  
 
   /** Attributes */
-  public currentStr = 15;
-  public currentStrMod = Math.round((this.currentStr - 10)/2); 
+  public currentStr = 16;
+  public currentStrMod = Math.floor((this.currentStr - 10)/2); 
 
-  public currentDex = 15;
-  public currentDexMod = Math.round((this.currentDex - 10)/2); 
+  public currentDex = 17;
+  public currentDexMod = Math.floor((this.currentDex - 10)/2); 
 
-  public currentCon = 14;
-  public currentConMod = Math.round((this.currentCon - 10)/2);
+  public currentCon = 17;
+  public currentConMod = Math.floor((this.currentCon - 10)/2);
 
-  public currentInt = 10;
-  public currentIntMod = Math.round((this.currentInt - 10)/2);
+  public currentInt = 15;
+  public currentIntMod = Math.floor((this.currentInt - 10)/2);
 
   public currentWis = 12;
-  public currentWisMod = Math.round((this.currentWis - 10)/2);
+  public currentWisMod = Math.floor((this.currentWis - 10)/2);
 
-  public currentCha = 11;
-  public currentChaMod = Math.round((this.currentCha - 10)/2);
+  public currentCha = 9;
+  public currentChaMod = Math.floor((this.currentCha - 10)/2);
 
   /** Class - Automation needed for Class selections */
 
   public currentClass = "Fighter";
 
   /** Profiency Bonus - Levels with Class level*/
-
-  if (currentClass == "Fighter") {
-   currentProf = 2;
-  };
+  public currentProf = 2;
+  
 
   /** Saves 
    * Based on class for profencty bonus and which radios are checked
   */
-
-  if (currentClass=="Fighter") {
-   this.currentStrSave = this.currentStrMod + this.currentProf;
-  }
-  else if (currentClass != "Fighter") {
-   this.currentStrSave = this.currentStrMod;
-  };
-
-  if (currentClass=="Fighter") {
-   this.currentDexSave = this.currentDexMod;
-  }
-  else if (currentClass != "Fighter") {
-   this.currentDexSave = this.currentDexMod + this.currentProf;
-  };
-
-  if (currentClass=="Fighter") {
-   this.currentConSave = this.currentConMod + this.currentProf;
-  }
-  else if (currentClass != "Fighter") {
-   this.currentConSave = this.currentConMod;
-  };
-
-  if (currentClass=="Fighter") {
-   this.currentIntSave = this.currentIntMod + this.currentProf;
-  }
-  else if (currentClass != "Fighter") {
-   this.currentIntSave = this.currentIntMod;
-  };
-
-  if (currentClass=="Fighter") {
-   this.currentWisSave = this.currentWisMod + this.currentProf;
-  }
-  else if (currentClass != "Fighter") {
-   this.currentWisSave = this.currentWisMod;
-  };
-
-  if (currentClass=="Fighter") {
-   this.currentChaSave = this.currentChaMod + this.currentProf;
-  }
-  else if (currentClass != "Fighter") {
-   this.currentChaSave = this.currentChaMod;
-  };
+  public currentStrSave = this.currentStrMod + this.currentProf;
+  public currentDexSave = this.currentDexMod;
+  public currentConSave = this.currentConMod + this.currentProf;
+  public currentIntSave = this.currentIntMod;
+  public currentWisSave = this.currentWisMod;
+  public currentChaSave = this.currentChaMod;
 
   /** Skills - Automated to Ratio button at later use for Profiency bonus
   * And make radio available for class specifications
@@ -131,7 +93,7 @@ export class AppComponent {
 
   public currentHP = this.currentConMod;
 
-  Public currentSpeed = 30;
+  public currentSpeed = 30;
 
 
 

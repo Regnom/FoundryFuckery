@@ -1,5 +1,5 @@
 .nav ul {
-    border: 1px #000;
+    list-style: none;
 }
 
 .charInfo {
@@ -42,12 +42,12 @@
     border: 1px #000;
 }
 
-.charAttrSaves {
-    border: 1px #000;
+.charAttrSaves ul {
+    list-style: none;
 }
 
-.charSkills {
-    border: 1px #000;
+.charSkills ul {
+    list-style: none;
 }
 
 .charACBlock {
