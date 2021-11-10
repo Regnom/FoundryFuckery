@@ -35,6 +35,10 @@ export enum DndClass {
     ROGUE = "ROGUE",
 }
 
+export enum SkillStat {
+    STR = player.attributes.
+}
+
 export interface DndCharater {
     name: string;
     race: DndRace;

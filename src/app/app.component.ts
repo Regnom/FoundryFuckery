@@ -63,6 +63,11 @@ export class AppComponent {
     return attributeBonus.toString();
   }
 
+  calculateSkills (attribute: number): number {
+    const attributeBonus = this.calculateAttributeBonus(attribute);
+    return attribute
+  }
+
 
   trackByFn (index: number): number {
     return index;
