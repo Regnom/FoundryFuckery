@@ -35,8 +35,25 @@ export enum DndClass {
     ROGUE = "ROGUE",
 }
 
-export enum SkillStat {
-    STR = player.attributes.
+export enum skillName {
+    ACROBATICS = "ACROBATICS",
+    ANIMAL_HANDLING = "ANIMAL HANDLING",
+    ARCANA = "ARCANA",
+    ATHLETICS = "ATHLETICS",
+    DECEPTION = "DECEPTION",
+    HISTORY = "HISTORY",
+    INSIGHT = "INSIGHT",
+    INTIMIDATION = "INTIMIDATION",
+    INVESTiGATION = "INVESTIGATION",
+    MEDICINE = "MEDICINE",
+    NATURE = "NATURE",
+    PERCEPTION = "PERCEPTION",
+    PREFORMANCE = "PREFORMANCE",
+    PERSUASION = "PERSUASION",
+    RELIGION = "RELIGION",
+    SLEIGHT_OF_HAND = "SLEIGHT OF HAND",
+    STEALTH = "STEALTH",
+    SURVIVAL = "SURVIVAL",
 }
 
 export interface DndCharater {
@@ -45,6 +62,7 @@ export interface DndCharater {
     allignment: Allignment;
     dndClass: DndClass;
     level: number;
+    profBonus: number;
     spellDC?: number; 
     attributes: {
         str: number;
@@ -53,6 +71,26 @@ export interface DndCharater {
         int: number;
         wis: number;
         cha: number;
+    }
+    skillsProf: {
+        acrobatics: number;
+        animal_handling: number;
+        arcana: number;
+        athletics: number;
+        deception: number;
+        history: number;
+        insight: number;
+        intimidation: number;
+        investigation: number;
+        medicine: number;
+        nature: number;
+        perception: number;
+        preformance: number;
+        persuasion: number;
+        religion: number;
+        sleight_of_hand: number;
+        stealth: number;
+        survival: number;
     }
 }
 

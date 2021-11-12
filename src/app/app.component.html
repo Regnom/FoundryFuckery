@@ -19,6 +19,12 @@
     <li>Wisdom: {{player.attributes.wis}} ({{displayAttributeBonus(player.attributes.wis)}})</li>
     <li>Charisma: {{player.attributes.cha}} ({{displayAttributeBonus(player.attributes.cha)}})</li>
   </ul>
+  <p>Skills</p>
+  <ul>
+    <li *ngFor="let skill of skills; index as i; trackBy: trackByFn">
+      {{skill}} ({{calcSkills}})
+    </li>
+  </ul>
 
 </div>
   
