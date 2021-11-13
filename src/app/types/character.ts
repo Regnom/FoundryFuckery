@@ -35,7 +35,13 @@ export enum DndClass {
     ROGUE = "ROGUE",
 }
 
-export enum skillName {
+export enum SkillProficiency {
+    UNSKILLED = "UNSKILLED",
+    SKILLED = "SKILLED",
+    EXPERT = "EXPERT",
+}
+
+export enum SkillName {
     ACROBATICS = "ACROBATICS",
     ANIMAL_HANDLING = "ANIMAL HANDLING",
     ARCANA = "ARCANA",
@@ -44,7 +50,7 @@ export enum skillName {
     HISTORY = "HISTORY",
     INSIGHT = "INSIGHT",
     INTIMIDATION = "INTIMIDATION",
-    INVESTiGATION = "INVESTIGATION",
+    INVESTIGATION = "INVESTIGATION",
     MEDICINE = "MEDICINE",
     NATURE = "NATURE",
     PERCEPTION = "PERCEPTION",
@@ -55,6 +61,27 @@ export enum skillName {
     STEALTH = "STEALTH",
     SURVIVAL = "SURVIVAL",
 }
+
+export enum Attribute {
+    STR = "str",
+    DEX = "dex",
+    CON = "con",
+    INT = "int",
+    WIS = "wis",
+    CHA = "cha",
+}
+
+export interface Skill {
+    name: SkillName;
+    attribute: Attribute;
+}
+
+export interface PlayerSkill {
+    skillProficiency: SkillProficiency;
+    skillName: SkillName;
+}
+
+
 
 export interface DndCharater {
     name: string;
@@ -72,26 +99,8 @@ export interface DndCharater {
         wis: number;
         cha: number;
     }
-    skillsProf: {
-        acrobatics: number;
-        animal_handling: number;
-        arcana: number;
-        athletics: number;
-        deception: number;
-        history: number;
-        insight: number;
-        intimidation: number;
-        investigation: number;
-        medicine: number;
-        nature: number;
-        perception: number;
-        preformance: number;
-        persuasion: number;
-        religion: number;
-        sleight_of_hand: number;
-        stealth: number;
-        survival: number;
-    }
+    skills: PlayerSkill[];
+    
 }
 
 export interface PlayerCharater extends DndCharater {

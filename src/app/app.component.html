@@ -4,28 +4,7 @@
 
 <!-- Player/Character Info -->
 <div *ngFor="let player of players; index as i; trackBy: trackByFn" class="charInfo">
-  <div class="logo">
-      <!-- Div will have CSS controlling the size/background to match the system -->
-  </div>
-  <div class="charName">Character name: {{player.name}}</div>
-  <div class="charRace">Race: {{player.race}}</div>
-  <div class="charAlign">Alignment: {{player.allignment}}</div>
-  <div class="charClass">Class: {{player.dndClass}}</div>
-  <ul>
-    <li>Strength: {{player.attributes.str}} ({{displayAttributeBonus(player.attributes.str)}})</li>
-    <li>Dexterity: {{player.attributes.dex}} ({{displayAttributeBonus(player.attributes.dex)}})</li>
-    <li>Constitution: {{player.attributes.con}} ({{displayAttributeBonus(player.attributes.con)}})</li>
-    <li>Intelligence: {{player.attributes.int}} ({{displayAttributeBonus(player.attributes.int)}})</li>
-    <li>Wisdom: {{player.attributes.wis}} ({{displayAttributeBonus(player.attributes.wis)}})</li>
-    <li>Charisma: {{player.attributes.cha}} ({{displayAttributeBonus(player.attributes.cha)}})</li>
-  </ul>
-  <p>Skills</p>
-  <ul>
-    <li *ngFor="let skill of skills; index as i; trackBy: trackByFn">
-      {{skill}} ({{calcSkills}})
-    </li>
-  </ul>
-
+  <app-player [player]="player"></app-player>
 </div>
   
 
