@@ -1,6 +1,6 @@
 
 
-import { PlayerCharater, Attribute } from "./types/character";
+import { PlayerCharater, Attribute, Skill } from "./types/character";
 
 export function getAttributeBonus (attribute: number): number {
    return Math.floor((attribute-10)/2);
@@ -9,6 +9,13 @@ export function getAttributeBonus (attribute: number): number {
 export function rollAttribute (player: PlayerCharater, attribute: Attribute): number {
     const attributeBonus = getAttributeBonus(player.attributes[attribute]);
     const randNumber = rollD20() + attributeBonus;
+    return randNumber;
+}
+
+export function rollSkill (player: PlayerCharater, attribute: Attribute): number {
+    const attributeBonus = getAttributeBonus(player.attributes[attribute]);
+    const skillProfBonus = 0;
+    const randNumber = rollD20() + attributeBonus + skillProfBonus;
     return randNumber;
 }
 

@@ -27,7 +27,17 @@
     <p>Skills</p>
     <ul>
         <li *ngFor="let skill of allSkills; index as i; trackBy: trackByFn">
-            {{skill.name}} ({{calcPlayerSkillBonus(player,skill)}})
+            <span>
+                {{skill.name}} ({{calcPlayerSkillBonus(player,skill)}})
+            </span>
+            <button (click)="handleSkillRoll(player,skill.attribute)">
+                Roll {{skill.name}}
+            </button>
+            <span>
+                {{skillRoll}}
+            </span>
+
+
 
         </li>
     </ul>
