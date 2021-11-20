@@ -1,11 +1,17 @@
 <!-- Nav will navigate through all the users/modes -->
-
+<nav>
+  <ul>
+    <li *ngFor="let player of players; index as i; trackBy: trackByFn">
+      <a routerLink="/player/{{i}}">{{player.name}}</a>
+    </li>
+  </ul>
+</nav>
 <!-- Charater sheet starts here -->
 
 <!-- Player/Character Info -->
-<div *ngFor="let player of players; index as i; trackBy: trackByFn" class="charInfo">
-  <app-player [player]="player"></app-player>
-</div>
+
+<router-outlet></router-outlet>
+
   
 
 

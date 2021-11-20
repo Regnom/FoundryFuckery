@@ -30,11 +30,11 @@
             <span>
                 {{skill.name}} ({{calcPlayerSkillBonus(player,skill)}})
             </span>
-            <button (click)="handleSkillRoll(player,skill.attribute)">
+            <button (click)="handleSkillRoll(player,skill.attribute, skill)">
                 Roll {{skill.name}}
             </button>
             <span>
-                {{skillRoll}}
+                {{skillRolls[skill.name]}}
             </span>
 
 

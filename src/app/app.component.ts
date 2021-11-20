@@ -9,6 +9,7 @@ import {
   SkillName,
   Skill,
   Attribute,
+  SkillProficiency,
 } from './types/character';
 
 import {
@@ -41,8 +42,19 @@ export class AppComponent {
         wis: 12,
         cha: 9,
       },
-      skills: [],
-
+      skills: [
+        {
+          skillName: SkillName.HISTORY,
+          skillProficiency: SkillProficiency.SKILLED
+        },
+        {
+          skillName: SkillName.ACROBATICS,
+          skillProficiency: SkillProficiency.SKILLED,
+        }
+      
+      ],
+      
+      
       
     },
     {
@@ -62,6 +74,7 @@ export class AppComponent {
         cha: 9,
       },
       skills: [],
+      
       
     }
   ];

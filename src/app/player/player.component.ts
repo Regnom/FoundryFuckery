@@ -1,15 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { rollAttribute, rollSkill } from '../rollUtil';
 import { calcPlayerSkillBonus } from '../skillUtil';
-import { Attribute, PlayerCharater, Skill, SkillName } from '../types/character';
-
+import { Allignment, Attribute, DndClass, DndRace, PlayerCharater, Skill, SkillName, SkillProficiency } from '../types/character';
+import { players } from '../data/players';
+import { allSkills } from '../data/skills';
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
 })
-export class PlayerComponent implements OnInit {
-  @Input() player: PlayerCharater | null = null;
+export class PlayerComponent implements OnInit, OnDestroy {
+  player?: PlayerCharater;
+  allSkills = allSkills;
+  subscriptions: Subscription = new Subscription();
   calcPlayerSkillBonus = (player: PlayerCharater | null, skill: Skill): number => {
     if (player !== null) {
       return calcPlayerSkillBonus(player, skill);
@@ -19,7 +24,7 @@ export class PlayerComponent implements OnInit {
   Attribute = Attribute;
 
   strRoll = 0;
-  skillRoll= 0;
+  skillRolls:{[skill: string]: number} = {};
 
 
   calculateAttributeBonus (attribute: number): number {  
@@ -38,8 +43,8 @@ export class PlayerComponent implements OnInit {
     this.strRoll = rollAttribute (player, attribute);
   }
 
-  handleSkillRoll (player: PlayerCharater, attribute: Attribute): void {
-    this.skillRoll = rollSkill (player, attribute);
+  handleSkillRoll (player: PlayerCharater, attribute: Attribute, skill: Skill): void {
+    this.skillRolls[skill.name] = rollSkill (player, attribute);
   }
 
   trackByFn (index: number): number {
@@ -47,104 +52,30 @@ export class PlayerComponent implements OnInit {
   }
 
 
-  allSkills: Skill[] = [
-    {
-      name: SkillName.ACROBATICS,
-      attribute: Attribute.DEX,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.ANIMAL_HANDLING,
-      attribute: Attribute.WIS,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.ARCANA,
-      attribute: Attribute.INT,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.ATHLETICS,
-      attribute: Attribute.STR,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.DECEPTION,
-      attribute: Attribute.CHA,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.HISTORY,
-      attribute: Attribute.INT,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.INSIGHT,
-      attribute: Attribute.WIS,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.INTIMIDATION,
-      attribute: Attribute.CHA,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.INVESTIGATION,
-      attribute: Attribute.INT,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.MEDICINE,
-      attribute: Attribute.WIS,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.NATURE,
-      attribute: Attribute.INT,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.PERCEPTION,
-      attribute: Attribute.WIS,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.PREFORMANCE,
-      attribute: Attribute.CHA,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.PERSUASION,
-      attribute: Attribute.CHA,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.RELIGION,
-      attribute: Attribute.INT,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.SLEIGHT_OF_HAND,
-      attribute: Attribute.DEX,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.STEALTH,
-      attribute: Attribute.DEX,
-      skillRoll: 0,
-    },
-    {
-      name: SkillName.SURVIVAL,
-      attribute: Attribute.WIS,
-      skillRoll: 0,
-    },
-
-]; 
 
 
-  constructor() { }
+
+
+
+ 
+
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    allSkills.forEach((skill: Skill) => {
+      this.skillRolls[skill.name] = 0;
+    });
+    this.subscriptions.add(this.route.paramMap.subscribe((params: ParamMap) => {
+      const playerIndex = parseInt(params.get("playerIndex") as string);
+      this.player = players[playerIndex];
+    }));
+      
+    
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
 }

@@ -74,7 +74,6 @@ export enum Attribute {
 export interface Skill {
     name: SkillName;
     attribute: Attribute;
-    skillRoll: number;
 }
 
 export interface PlayerSkill {
@@ -99,28 +98,11 @@ export interface DndCharater {
         int: number;
         wis: number;
         cha: number;
-    }
-    skills: PlayerSkill[];
-    skillsProf: {
-        acrobatics: number;
-        animalHandling: number;
-        arcana: number;
-        athletics: number;
-        deception: number;
-        history: number;
-        insight: number;
-        intimidation: number;
-        investigation: number;
-        medicine: number;
-        nature: number;
-        perception: number;
-        preformance: number;
-        persuasion: number;
-        religion: number;
-        sleightOfHand: number;
-        stealth: number;
-        survival: number;
     };
+    skills: PlayerSkill[];
+    
+    
+
     
 }
 
